@@ -1,0 +1,15 @@
+{% extends "shortenurls/base.html" %}
+
+{% block content %}
+
+<h1>Welcome to our URL shortener</h1>
+
+<h2> Enter the URL you want to shorten:</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Shorten me!">
+</form>
+
+{% endblock content %}
