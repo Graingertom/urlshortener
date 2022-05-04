@@ -4,6 +4,7 @@ from django.db import models
 
 class URL(models.Model):
     yourURL = models.CharField(max_length=100)
+    shortURL = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return f"{self.yourURL} {self.shortURL}"

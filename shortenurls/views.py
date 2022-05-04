@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import URLShortenForm 
+from .models import URL
 
 def home(req):
     if req.method == 'POST':
@@ -12,4 +13,11 @@ def home(req):
         form = URLShortenForm()
     data = { 'form':form }
     return render(req, 'shortenurls/home.html', data)
+
+def show(req):
+    url = get_object_or_404(URL, pk=id)
+    data = {
+        'url':url
+    }
+    return render(req, 'shortenurls/show.html', data)
 
